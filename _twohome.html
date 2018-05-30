@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>CRM+找商機</title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+
+<body>
+    <div style="max-width:1280px;margin:0 auto;">
+        <header style="outline:3px solid red;height:16vh;align-content:space-around;justify-content:center;z-index:1;background-color: white;min-width:1280px;position:fixed;-webkit-box-shadow: 0 4px 6px -6px #222; -moz-box-shadow: 0 4px 6px -6px #222;  box-shadow: 0 4px 6px -6px #222;display:flex">
+            <div style="outline:5px solid green;">
+                <div style="outline:2px solid red;height:15%">
+                </div>
+                <div class="title textAll" style="outline:2px solid red;height:27%;letter-spacing: 25px;margin:auto;color:#2171c4;margin-right:-25px;">
+                    CRM+找商機
+                </div>
+                <div style="outline:2px solid red;height:15%">
+                </div>
+                <div style="height:35%;display:flex;justify-content: center;align-items:center;">
+                    <div style="margin-right:18px;color:#ef7b7b;font-weight:bold;letter-spacing:3.5px">產品類別</div>
+                    <select id="test" onchange="showCompanyList()" required>
+                            <option value="" disabled selected hidden>
+                                請選擇
+                            </option>
+                        </select>
+                </div>
+                <div style="outline:2px solid red;height:8%">
+                </div>
+            </div>
+        </header>
+        <div style="padding-top:16vh;display:flex">
+            <aside style="width:35%;">
+                <header class="subTitle textAll" style="outline:5px solid red;height:7vh;font-size:20px;display:flex;">
+                    <div style="color:#ef7b7b;margin:auto">
+                        推薦客戶
+                    </div>
+                </header>
+                <div style="height:74.5vh;overflow-y: scroll;">
+                    <div class="accordionItem" style="margin-bottom:10px;">
+                        <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem()" class="accordionHead">
+                            高度推薦
+                            <span id="hiLength" style="position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
+                        </div>
+                        <div class="accordionContent close" id="high" style="text-align:left;padding: 2px 0px;border: 1px solid #ddd">
+                        </div>
+                    </div>
+                    <div class="accordionItem" style="margin-bottom:10px;">
+                        <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem()" class="accordionHead">
+                            中度推薦
+                            <span id="meLength" style="position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
+                        </div>
+                        <div class="accordionContent close" id="medium" style="text-align:left;padding: 2px 0px;border: 1px solid #ddd">
+                        </div>
+                    </div>
+                    <div class="accordionItem" style="margin-bottom:10px;">
+                        <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem()" class="accordionHead">低度推薦
+                            <span id="loLength" style="position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
+                        </div>
+                        <div class="accordionContent close" id="low" style="padding: 2px 0px;border: 1px solid #ddd">
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <main style="width:65%;">
+                <header class="subTitle textAll" style="outline:5px solid red;height:7vh;font-size:20px;display:flex;">
+                    <div style="color:#ef7b7b;margin:auto">
+                        客戶畫像
+                    </div>
+                </header>
+                <div style="height:74.5vh;overflow-y: scroll;">
+                    <div style="padding:25px 25px 0px 25px;outline:5px solid red;">
+                        <div id="level" style="font-size:58px;text-align:center;">
+                        </div>
+                        <div id="id" style="text-align:center;margin-bottom:40px;">
+                        </div>
+                        <section id="basic" style="margin-bottom:40px;">
+                        </section>
+                        <section id="tag" style="margin-bottom:40px;">
+                        </section>
+                        <section id="newsTest">
+                        </section>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+    <!-- </div> -->
+    <script src="company.js"></script>
+    <script>
+        window.onload = () => {
+            show()
+        };
+        // 幾筆推薦公司, 預設顯示為０
+        const lengthArr = ['hiLength', 'meLength', 'loLength']
+        for (let i in lengthArr) {
+            let number = lengthArr[i]
+            document.getElementById(number).textContent = 0
+        }
+
+        //打開關起功能
+        const content = document.getElementsByClassName('accordionContent')
+
+        function toggleItem() {
+            let className = event.target.nextElementSibling.className //= this.parentNode.className
+            for (let j in content) {
+                content[j].className = 'accordionContent close';
+            }
+            if (className === 'accordionContent close') {
+                event.target.nextElementSibling.className = 'accordionContent open'
+            }
+        }
+
+        const filterArray = Object.keys(data2)
+        //第1個filter
+        function show() {
+            for (let i in filterArray) {
+                var node = document.createElement("OPTION");
+                var textnode = document.createTextNode(filterArray[i]);
+                node.appendChild(textnode);
+                document.getElementById("test").appendChild(node);
+            }
+        }
+
+        let filterResponse = ''
+
+        //顯示 推薦客戶的list
+        function showCompanyList() {
+            //清空上一筆資料
+            document.getElementById("high").textContent = ''
+            document.getElementById("medium").textContent = ''
+            document.getElementById("low").textContent = ''
+
+
+
+            let a = document.getElementById("test").value
+            filterResponse = a
+
+            let hiLength = data2[filterResponse].list.hi.length
+            let meLength = data2[filterResponse].list.me.length
+            let loLength = data2[filterResponse].list.lo.length
+            document.getElementById('hiLength').textContent = hiLength
+            document.getElementById('meLength').textContent = meLength
+            document.getElementById('loLength').textContent = loLength
+
+
+            //抓資料出來
+            let high = filterResponse in data2 ? data2[filterResponse].list.hi : null
+            let medium = filterResponse in data2 ? data2[filterResponse].list.me : null
+            let low = filterResponse in data2 ? data2[filterResponse].list.lo : null
+
+            for (let i in high) {
+
+                var node = document.createElement("DIV");
+                var textnode = document.createTextNode(high[i]);
+
+                //add id attribtue
+                // https://stackoverflow.com/questions/19625646/javascript-adding-an-id-attribute-to-another-created-element
+                node.setAttribute("id", "testid");
+                node.setAttribute("style", "cursor:pointer");
+                node.appendChild(textnode);
+
+                //add onclick event to customer list
+                // https://stackoverflow.com/questions/13915702/adding-event-listeners-to-multiple-elements
+                node.addEventListener("click", CustomerProfile)
+                document.getElementById("high").appendChild(node);
+            }
+
+            for (let i in medium) {
+                var node = document.createElement("DIV");
+                var textnode = document.createTextNode(medium[i]);
+                node.setAttribute("id", "testid");
+                node.setAttribute("style", "cursor:pointer");
+                node.appendChild(textnode);
+                node.addEventListener("click", CustomerProfile)
+                document.getElementById("medium").appendChild(node);
+            }
+
+            for (let i in low) {
+                var node = document.createElement("DIV");
+                node.setAttribute("style", "cursor:pointer");
+                var textnode = document.createTextNode(low[i]);
+                node.setAttribute("id", "testid");
+                node.appendChild(textnode);
+                node.addEventListener("click", CustomerProfile)
+                document.getElementById("low").appendChild(node);
+            }
+        }
+
+        let profile = ''
+
+        function CustomerProfile() {
+            let filterChoice = filterResponse
+            let a = event.target.textContent //get the textcontent of element clicked
+            profile = a in data2[filterResponse].profile ? data2[filterResponse].profile[a] : null
+            //把資料放進 客戶畫像 裡面
+            document.getElementById('level').textContent = profile.level
+            document.getElementById('id').textContent = `ID:${profile.id}`
+
+            // 把資料放進組織型態那一區
+            showCustomer('basic')
+            showCustomer('tag')
+
+            document.getElementById('newsTest').textContent = '' //先清空上一筆
+            let news = profile.news
+            for (let i in news) {
+
+                let node = document.createElement("DIV"); //create an element
+                let textnode = document.createTextNode(news[i]); //create text
+                node.appendChild(textnode); //append text to the element
+                document.getElementById("newsTest").appendChild(node); //append the element to html page
+            }
+        }
+
+        function showCustomer(e) {
+            document.getElementById(e).textContent = '' //先清空上一筆
+
+            let companyInfo = Object.keys(profile[e]) //profile底下的下一層選項的'basic'或'tag'底下的東西
+
+            let basicTitle = ['組織型態：', '創立時間：', '行業：', '主要產品：']
+            let tagTitle = ['客戶等級：', '產業類別：', '資本額：']
+            for (let i in companyInfo) {
+                console.log('a')
+                let title = e === 'basic' ? basicTitle : tagTitle
+                let p
+                for (let j in title) {
+                    p = document.createElement("P")
+                    let key = companyInfo[i]
+                    let keyValue = profile[e][key]
+                    console.log('title[i] is',title[i])
+                    let text = `${title[i]}${keyValue}`
+                    console.log('text is',text)
+                    p.innerHTML = text
+                }
+                console.log('c')
+                document.getElementById(e).appendChild(p) //append the element to html page
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+body {
+    font-family: Microsoft JhengHei,times;
+    font-size: 18px;
+}
+.textAll {
+    letter-spacing: 3.5px;
+    color: #ef7b7b
+}
+#test2{
+    display:flex
+}
+div{
+    color:#505050;
+    letter-spacing: 3.5px;
+    font-family: Microsoft JhengHei,times;
+}
+/* https://www.w3schools.com/howto/howto_custom_select.asp */
+
+select {
+    font-size:16px;
+    outline: 1px solid #505050;
+height: 40px;
+/* border: none !important; */
+outline: none!important;
+/* box-shadow: 1px 3px 8px rgba(0, 0, 0, .5); */
+width: 180px;
+padding: 3px;
+/* border: 1px solid grey; */
+border-radius: 3px;
+color: black;
+font-family: Microsoft JhengHei;
+}
+
+/* accordion style */
+.accordionHead { /*head*/
+    color: white;
+    letter-spacing: 3.5px;
+    background: #2785e8;
+    padding: 12px 0px;
+    position: relative;
+}
+.open {
+    -webkit-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transition: -webkit-transform 0.4s ease-out;
+    -o-transition: -o-transform 0.4s ease;
+    -ms-transition: -ms-transform 0.4s ease;
+    transition: transform 0.4s ease;
+}
+.close {
+    height: 0px;
+    -webkit-transform: scaleY(0);
+    -o-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    transform: scaleY(0);
+}
+
+
+.title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.subTitle {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#testid {
+    padding-left: 10px;
+    letter-spacing: 3.5px;
+    margin-bottom: 8px;
+}
+#testStyle{
+    display:flex;
+    margin-bottom:8px;
+}
+#testStyle2{
+    font-weight:bold;
+}
+#titleBetween,#titleNews{
+    font-weight:bold;
+    margin-bottom:8px;
+}
+#titleNews{
+    color:#2785e8
+}
+#testBorder{
+    border:1px solid #134272;
+    padding:15px;
+    margin-bottom: 15px;
+}
+#marginBelow{
+    margin-bottom:8px;
+    font-weight:bold;
+}
