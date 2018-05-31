@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <div style="max-width:1280px;margin:0 auto;">
-        <header style="outline:3px solid red;height:16vh;align-content:space-around;justify-content:center;z-index:1;background-color: white;min-width:1280px;position:fixed;-webkit-box-shadow: 0 4px 6px -6px #222; -moz-box-shadow: 0 4px 6px -6px #222;  box-shadow: 0 4px 6px -6px #222;display:flex">
+    <div style="max-width:1240px;margin:0 auto;">
+        <header style="outline:3px solid red;height:16vh;align-content:space-around;justify-content:center;z-index:1;background-color: white;min-width:1240px;position:fixed;-webkit-box-shadow: 0 4px 6px -6px #222; -moz-box-shadow: 0 4px 6px -6px #222;  box-shadow: 0 4px 6px -6px #222;display:flex">
             <div style="outline:5px solid green;">
                 <div style="outline:2px solid red;height:15%">
                 </div>
@@ -41,7 +41,7 @@
                 </header>
                 <div style="height:74.5vh;overflow-y: scroll;">
                     <div class="accordionItem" style="margin-bottom:10px;">
-                        <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem()" class="accordionHead">
+                        <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem(event)" class="accordionHead">
                             高度推薦
                             <span id="hiLength" style="position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
                         </div>
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="accordionItem" style="margin-bottom:10px;">
-                        <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem()" class="accordionHead">
+                        <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem(event)" class="accordionHead">
                             中度推薦
                             <span id="meLength" style="position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
                         </div>
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                     <div class="accordionItem" style="margin-bottom:10px;">
-                        <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem()" class="accordionHead">低度推薦
+                        <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem(event)" class="accordionHead">低度推薦
                             <span id="loLength" style="position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
                         </div>
                         <div class="accordionContent close" id="low" style="padding: 2px 0px;border: 1px solid #ddd">
@@ -115,13 +115,14 @@
         //打開關起功能
         const content = document.getElementsByClassName('accordionContent')
 
-        function toggleItem() {
-            let className = event.target.nextElementSibling.className //= this.parentNode.className
+        function toggleItem(e) {
+            console.log('toggleItem')
+            let className = e.target.nextElementSibling.className //= this.parentNode.className
             for (let j in content) {
                 content[j].className = 'accordionContent close';
             }
             if (className === 'accordionContent close') {
-                event.target.nextElementSibling.className = 'accordionContent open'
+                e.target.nextElementSibling.className = 'accordionContent open'
             }
         }
 
@@ -203,9 +204,9 @@
 
         let profile = ''
 
-        function CustomerProfile() {
+        function CustomerProfile(e) {
             let filterChoice = filterResponse
-            let a = event.target.textContent //get the textcontent of element clicked
+            let a = e.target.textContent //get the textcontent of element clicked
             profile = a in data2[filterResponse].profile ? data2[filterResponse].profile[a] : null
             //把資料放進 客戶畫像 裡面
             document.getElementById('level').textContent = profile.level
