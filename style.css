@@ -100,3 +100,11 @@ font-family: Microsoft JhengHei;
     margin-bottom:8px;
     font-weight:bold;
 }
+#similarStyle{
+    margin-bottom:8px;
+}
+.fa-info-circle{
+    color: #2785e8;
+    cursor:pointer;
+    font-size: 14px;
+}

@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 
 <body>
@@ -84,7 +87,7 @@
                         </div>
                         <div id="titleBetween">
                         </div>
-                        <section id="tag" style="margin-bottom:40px;">
+                        <section id="similar" style="font-weight:100;margin-bottom:40px;">
                         </section>
                         <div id="titleNews">
                         </div>
@@ -116,7 +119,6 @@
         const content = document.getElementsByClassName('accordionContent')
 
         function toggleItem(e) {
-            console.log('toggleItem')
             let className = e.target.nextElementSibling.className //= this.parentNode.className
             for (let j in content) {
                 content[j].className = 'accordionContent close';
@@ -214,7 +216,27 @@
 
             // 把資料放進組織型態那一區
             showCustomer('basic')
-            showCustomer('tag')
+            showCustomer('similar')
+
+            //放進 相似公司資料
+            // let similar = Object.keys(profile.similar)
+            // for (let i in similar){
+            //     let div = document.createElement("DIV")
+            //     div.setAttribute("id", "similarStyle")
+            //     let text = `${similar[i]}`
+            //
+            //     //test
+            //     let iNode = document.createElement("I")
+            //     iNode.setAttribute("class", "fas fa-info-circle")
+            //     console.log('iNode is',iNode)
+            //
+            //     // let node = document.createElement("DIV")
+            //     // <i class="fas fa-info-circle"></i>
+            //
+            //     div.innerHTML = text
+            //     document.getElementById('similar').appendChild(div)
+            //     document.getElementById('similar').appendChild(iNode)
+            // }
 
             document.getElementById('newsTest').textContent = '' //先清空上一筆
             let news = profile.news
@@ -253,7 +275,7 @@
             let companyInfo = Object.keys(profile[e]) //profile底下的下一層選項的'basic'或'tag'底下的東西
 
             let basicTitle = ['組織型態：', '創立時間：', '行業：', '主要產品：']
-            let tagTitle = ['客戶等級：', '產業類別：', '資本額：']
+            let similarTitle = Object.keys(profile.similar)
 
             // test
             // for (let i in companyInfo) {
@@ -291,35 +313,54 @@
 
             // <div>first then append sth inside
             for (let i in companyInfo) {
-                console.log('a')
-                let title = e === 'basic' ? basicTitle : tagTitle
+                let title = e === 'basic' ? basicTitle : similarTitle
                 let p
                 let div
                 let key = companyInfo[i]
                 for (let j in title) {
-                    // test
-                    //div elements to hold the two divs inside
-                    div = document.createElement("DIV")
-                    div.setAttribute("id", "testStyle")
 
-                    //test
-                    divChild = document.createElement("DIV")
-                    divChild.setAttribute("id", "testStyle2")
-                    let before = `${title[i]}`
-                    divChild.innerHTML = before
+                    if( e === 'basic'){
+                        // test
+                        //div elements to hold the two divs inside
+                        div = document.createElement("DIV")
+                        div.setAttribute("id", "testStyle")
+
+                        //test
+                        divChild = document.createElement("DIV")
+                        divChild.setAttribute("id", "testStyle2")
+                        let before = `${title[i]}`
+                        divChild.innerHTML = before
 
 
-                    p = document.createElement("P")
-                    let keyValue = profile[e][key]
-                    console.log('title[i] is',title[i])
-                    let text = `${keyValue}`
-                    console.log('text is',text)
-                    p.innerHTML = text
+                        p = document.createElement("P")
+                        let keyValue = profile[e][key]
+                        let text = `${keyValue}`
+                        p.innerHTML = text
 
-                    div.appendChild(divChild)
-                    div.appendChild(p)
+                        div.appendChild(divChild)
+                        div.appendChild(p)
+
+                    } else {
+                        // test
+                        //div elements to hold the two divs inside
+                        div = document.createElement("DIV")
+                        div.setAttribute("id", "testStyle")
+
+                        //test
+                        divChild = document.createElement("DIV")
+                        divChild.setAttribute("id", "testStyle2")
+                        let before = `${title[i]}`
+                        divChild.innerHTML = before
+
+
+                        let iNode = document.createElement("I")
+                        iNode.setAttribute("class", "fas fa-info-circle")
+
+                        div.appendChild(divChild)
+                        div.appendChild(iNode)
+
+                    }
                 }
-                console.log('c')
                 document.getElementById(e).appendChild(div) //append the element to html page
             }
 

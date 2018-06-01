@@ -1,0 +1,30 @@
+<html>
+<head>
+<style>
+#info{
+  background-color:grey;
+  position:fixed;
+}
+</style>
+</head>
+<body>
+
+    <div onmousedown="showCoords(event)">
+        <p>To display the mouse coordinates click anywhere on the page.</p>
+      </div>
+    <span id="info">info</span>
+    <script>
+    function showCoords(evt){
+let x = evt.clientX
+let y = evt.clientY
+document.getElementById('info').style.left = `${x}px`
+console.log(`${x}px`)
+document.getElementById('info').style.top = `${y}px`
+    console.log(
+      "clientX value: " + evt.clientX + "\n" +
+      "clientY value: " + evt.clientY + "\n"
+    );
+  }
+    </script>
+</body>
+</html>

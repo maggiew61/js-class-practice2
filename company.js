@@ -26,10 +26,10 @@ const data2= {
           "ty": "建材批發業",
           "pr": "其他金屬建材批發"
         },
-        "tag": {
-          "le": "c",
-          "ty": "一般客戶",
-          "mo": 1000000
+        "similar": {
+          "aaa": "info about aaa",
+          "bbb": "info about bbb",
+          "ccc": "info about ccc"
         },
         "news": [
           [
