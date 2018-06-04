@@ -81,8 +81,17 @@ font-family: Microsoft JhengHei;
     display:flex;
     margin-bottom:8px;
 }
+#similarStyle{
+    /* display:flex; */
+    margin-bottom:8px;
+    align-items: center;
+}
 #testStyle2{
     font-weight:bold;
+}
+#similarId{
+    border-bottom:1px dotted grey;
+    cursor:pointer;
 }
 #titleBetween,#titleNews{
     font-weight:bold;
@@ -100,11 +109,19 @@ font-family: Microsoft JhengHei;
     margin-bottom:8px;
     font-weight:bold;
 }
-#similarStyle{
-    margin-bottom:8px;
-}
 .fa-info-circle{
     color: #2785e8;
     cursor:pointer;
     font-size: 14px;
+}
+#info{
+  background-color:#2785e8;
+  padding:10px;
+  color:#f2f2f2;
+  border-radius:3px;
+  position:fixed;
+  font-size:14px;
+  visibility:hidden;
+  font-family:microsoft jhenghei;
+  box-shadow:0 4px 6px -6px #222;
 }

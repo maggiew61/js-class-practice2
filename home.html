@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 
-<body>
+<body id="body">
     <div style="max-width:1240px;margin:0 auto;">
         <header style="outline:3px solid red;height:16vh;align-content:space-around;justify-content:center;z-index:1;background-color: white;min-width:1240px;position:fixed;-webkit-box-shadow: 0 4px 6px -6px #222; -moz-box-shadow: 0 4px 6px -6px #222;  box-shadow: 0 4px 6px -6px #222;display:flex">
             <div style="outline:5px solid green;">
@@ -205,6 +205,7 @@
         }
 
         let profile = ''
+        let similarContent
 
         function CustomerProfile(e) {
             let filterChoice = filterResponse
@@ -267,15 +268,17 @@
 
         }
 
+        //display '客戶畫像' contents
         function showCustomer(e) {
             document.getElementById(e).textContent = '' //先清空上一筆
             document.getElementById('titleBetween').textContent = '相似公司' //先清空上一筆
             document.getElementById('titleNews').textContent = '產訓新聞' //先清空上一筆
 
-            let companyInfo = Object.keys(profile[e]) //profile底下的下一層選項的'basic'或'tag'底下的東西
+            let companyInfo = Object.keys(profile[e]) //profile底下的下一層選項的'basic'或'similar'底下的東西
 
             let basicTitle = ['組織型態：', '創立時間：', '行業：', '主要產品：']
-            let similarTitle = Object.keys(profile.similar)
+            similarTitle = Object.keys(profile.similar)
+            similarContent = profile.similar
 
             // test
             // for (let i in companyInfo) {
@@ -316,6 +319,7 @@
                 let title = e === 'basic' ? basicTitle : similarTitle
                 let p
                 let div
+                let info
                 let key = companyInfo[i]
                 for (let j in title) {
 
@@ -344,26 +348,64 @@
                         // test
                         //div elements to hold the two divs inside
                         div = document.createElement("DIV")
-                        div.setAttribute("id", "testStyle")
+                        div.setAttribute("id", "similarStyle")
+
+
+                        //add info text
+                        info = document.createElement("SPAN")
+                        info.setAttribute("id", "info")
+                        let text = profile[e][title[i]]
+                        info.innerHTML = text
+
+
 
                         //test
-                        divChild = document.createElement("DIV")
-                        divChild.setAttribute("id", "testStyle2")
+                        divChild = document.createElement("SPAN")
+                        divChild.setAttribute("id", "similarId")
                         let before = `${title[i]}`
                         divChild.innerHTML = before
+
+                        //add event listener
+                        divChild.addEventListener("mouseover", showCoords)
+                        divChild.addEventListener("mouseout", disappear)
 
 
                         let iNode = document.createElement("I")
                         iNode.setAttribute("class", "fas fa-info-circle")
+                        divChild.appendChild(iNode)
 
                         div.appendChild(divChild)
-                        div.appendChild(iNode)
+                        // div.appendChild(iNode)
+                        div.appendChild(info)
 
                     }
                 }
                 document.getElementById(e).appendChild(div) //append the element to html page
             }
 
+        }
+        //tooptip內容與位置
+        function showCoords(e){
+            //tooltip位置
+            let x = e.clientX
+            let y = e.clientY
+            let info = document.getElementById('info')
+            info.style.visibility = 'visible'
+            info.style.left = calc(x)
+            info.style.top = calc(y)
+
+            //硬幹,為了讓info icon也有字跑出
+            let parent = event.target.parentElement
+            info.textContent = parent.nodeName === 'SPAN'
+            ? similarContent[parent.textContent] //tooptip內容
+            : similarContent[event.target.textContent] //tooptip內容
+
+        }
+        const calc = (n) => `${n + 8}px`
+
+        //mouseout時讓tooptip消失
+        function disappear(){
+            document.getElementById('info').style.visibility = 'hidden'
         }
     </script>
 
