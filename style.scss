@@ -1,0 +1,246 @@
+$gap : 15%;
+body {
+    font-family: Microsoft JhengHei,times;
+    font-size: 18px;
+    .container{
+        max-width:1240px;
+        margin:0 auto;
+    }
+}
+//text settings
+.textAll {
+    letter-spacing: 3.5px;
+    color: #ef7b7b;
+    font-weight:bold;
+}
+.subTitle {
+    font-size: 18px;
+    text-align: center;
+}
+.generalMargin{
+    margin-bottom:40px;
+}
+
+header{
+    height:13vh;
+    align-content:space-around;
+    justify-content:center;
+    background-color:#0277bd;
+    min-width:1240px;
+    position:fixed;
+    display:flex;
+    .gap{
+        height:$gap;
+    }
+    .title {
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        position: relative;
+        height:27%;
+        letter-spacing: 45px;
+        margin-right:-45px;
+        margin:auto;
+        color:white;
+        i{
+            position: absolute;
+            left: 156px;
+            top: -11px;
+            font-size: 18px
+        }
+    }
+    .categoryFilter{
+        height:35%;
+        display:flex;
+        justify-content: center;
+        align-items:center;
+        div{
+            margin-right:18px;
+            color:white;
+        }
+    }
+    .smallGap{
+        height:8%
+    }
+}
+main{
+    padding-top:13vh;
+    display:flex;
+    .title{
+        margin-top:8px;
+        background-color:#004c8c;
+        height:5.5vh;
+        font-size:20px;
+        display:flex;
+    }
+    .text{
+        color:white;
+        margin:auto
+}
+
+}
+aside:first-child{
+    width:35%;
+    .leftContent{
+        margin-top:10px;
+        background-color:#fbfdff;
+        height:79.5vh;
+        overflow-y: scroll;
+        .accordionItem{
+            margin-bottom:10px;
+            .accordionHead { /*head*/
+                color: #004c8c;
+                font-weight:bold;
+                letter-spacing: 3.5px;
+                background: white;
+                padding: 12px 0px;
+                position: relative;
+                border: 3px solid #0277bd;
+                padding-left:13px;
+                cursor:pointer;
+                text-align: left;border-radius:3px;
+                .length{
+                    color:white;
+                    position:absolute;
+                    right:5px;
+                    background-color: #134272;
+                    padding: 2px 22px;
+                    border-radius: 15px;
+                }
+            }
+            .accordionContent{
+                text-align:left;
+                padding: 2px 0px;
+                border: 2px solid #0277bd;
+                border-top:transparent
+            }
+        }
+    }
+}
+aside:last-child{
+    width:65%;
+    .rightContent{
+        margin-top:10px;
+        background-color:#fbfdff;
+        height:79.5vh;
+        overflow-y: scroll;
+        .inner{
+            padding:25px 55px 0px 55px
+        }
+        #level{
+            font-weight:bold;
+            color:#d32f2f;
+            font-size:76px;
+            text-align:center;
+        }
+        #id{
+        font-weight:bold;
+        text-align:center;
+        margin-bottom:40px;
+        }
+    }
+}
+
+#test2{
+    display:flex
+}
+div{
+    color:#505050;
+    letter-spacing: 3.5px;
+    font-family: Microsoft JhengHei,times;
+}
+/* https://www.w3schools.com/howto/howto_custom_select.asp */
+
+select {
+    font-size:16px;
+    outline: 1px solid #505050;
+height: 40px;
+/* border: none !important; */
+outline: none!important;
+/* box-shadow: 1px 3px 8px rgba(0, 0, 0, .5); */
+width: 180px;
+padding: 3px;
+/* border: 1px solid grey; */
+border-radius: 3px;
+color: black;
+font-family: Microsoft JhengHei;
+}
+
+/* accordion style */
+.open {
+    -webkit-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transition: -webkit-transform 0.4s ease-out;
+    -o-transition: -o-transform 0.4s ease;
+    -ms-transition: -ms-transform 0.4s ease;
+    transition: transform 0.4s ease;
+}
+.close {
+    height: 0px;
+    -webkit-transform: scaleY(0);
+    -o-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    transform: scaleY(0);
+}
+
+
+
+
+
+#testid {
+    padding-left: 13px;
+    letter-spacing: 3.5px;
+    margin-bottom: 8px;
+    padding-top:7px;
+}
+#testStyle{
+    display:flex;
+    margin-bottom:8px;
+}
+#similarStyle{
+    /* display:flex; */
+    margin-bottom:8px;
+    align-items: center;
+}
+#testStyle2{
+    font-weight:bold;
+}
+#similarId{
+    border-bottom:1px dotted grey;
+    cursor:pointer;
+}
+#titleBetween,#titleNews{
+    font-weight:bold;
+    margin-bottom:8px;
+    color:#004c8c;
+}
+#titleNews{
+    color:#004c8c;
+}
+#testBorder{
+    border:2px solid #0277bd;
+    padding:15px;
+    margin-bottom: 15px;
+}
+#marginBelow{
+    margin-bottom:8px;
+    font-weight:bold;
+}
+.fa-info-circle{
+    color: #004c8c;
+    cursor:pointer;
+    font-size: 14px;
+}
+#info{
+  background-color:#2785e8;
+  padding:10px;
+  color:#f2f2f2;
+  border-radius:3px;
+  position:fixed;
+  font-size:14px;
+  visibility:hidden;
+  font-family:microsoft jhenghei;
+  box-shadow:0 4px 6px -6px #222;
+}

@@ -13,96 +13,101 @@
 </head>
 
 <body id="body">
-    <div style="max-width:1240px;margin:0 auto;">
-        <header style="height:16vh;align-content:space-around;justify-content:center;z-index:1;background-color:#0277bd;min-width:1240px;position:fixed;-webkit-box-shadow: 0 4px 6px -6px #222; -moz-box-shadow: 0 4px 6px -6px #222;  box-shadow: 0 4px 6px -6px #222;display:flex">
+    <div class="container">
+        <header>
             <div>
-                <div style="height:15%">
+                <div class="gap">
                 </div>
-                <div class="title textAll" style="height:27%;letter-spacing: 25px;margin:auto;color:white;margin-right:-25px;">
-                    CRM+找商機
+                <div class="title textAll">
+                    CRM找商機
+                    <i class="fas fa-plus"></i>
                 </div>
-                <div style="height:15%">
+                <div class="gap">
                 </div>
-                <div style="height:35%;display:flex;justify-content: center;align-items:center;">
-                    <div style="margin-right:18px;color:white;font-weight:bold;letter-spacing:3.5px">產品類別</div>
-                    <select id="test" onchange="showCompanyList()" required>
+                <div class="categoryFilter">
+                    <div class="textAll bold">產品類別</div>
+                    <select
+                        id="test"
+                        onchange="showCompanyList()" required>
                             <option value="" disabled selected hidden>
                                 請選擇
                             </option>
-                        </select>
+                    </select>
                 </div>
-                <div style="height:8%">
+                <div class="smallGap">
                 </div>
             </div>
         </header>
-        <div style="padding-top:16vh;display:flex">
-            <aside style="width:35%;">
-                <header class="subTitle textAll" style="background-color:#004c8c;;height:7vh;font-size:20px;display:flex;">
-                    <div style="color:white;margin:auto">
+        <main>
+            <aside>
+                <div class="subTitle textAll title" >
+                    <div class="text">
                         推薦客戶
                     </div>
-                </header>
-                <div style="height:74.5vh;overflow-y: scroll;">
-                    <div class="accordionItem" style="margin-bottom:10px;">
-                        <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem(event)" class="accordionHead">
+                </div>
+                <div class="leftContent">
+                    <div class="accordionItem">
+                        <div
+                        onclick="toggleItem(event)"
+                        class="accordionHead">
                             高度推薦
-                            <span id="hiLength" style="color:white;position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
+                            <span id="hiLength" class="length"></span>
                         </div>
-                        <div class="accordionContent close" id="high" style="text-align:left;padding: 2px 0px;border: 2px solid #0277bd;border-top:transparent">
+                        <div class="accordionContent close" id="high">
                         </div>
                     </div>
-                    <div class="accordionItem" style="margin-bottom:10px;">
-                        <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem(event)" class="accordionHead">
+                    <div class="accordionItem">
+                        <div
+                        onclick="toggleItem(event)"
+                        class="accordionHead">
                             中度推薦
-                            <span id="meLength" style="color:white;position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
+                            <span id="meLength" class="length"></span>
                         </div>
-                        <div class="accordionContent close" id="medium" style="text-align:left;padding: 2px 0px;border: 2px solid #0277bd;border-top:transparent">
+                        <div class="accordionContent close" id="medium">
                         </div>
                     </div>
-                    <div class="accordionItem" style="margin-bottom:10px;">
-                        <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem(event)" class="accordionHead">低度推薦
-                            <span id="loLength" style="color:white;position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
+                    <div class="accordionItem">
+                        <div
+                        onclick="toggleItem(event)"
+                        class="accordionHead">低度推薦
+                            <span id="loLength" class="length"></span>
                         </div>
-                        <div class="accordionContent close" id="low" style="padding: 2px 0px;border: 2px solid #0277bd;border-top:transparent">
+                        <div class="accordionContent close" id="low">
                         </div>
                     </div>
                 </div>
             </aside>
-            <main style="width:65%;">
-                <header class="subTitle textAll" style="background-color:#004c8c;;height:7vh;font-size:20px;display:flex;">
-                    <div style="color:white;margin:auto">
+            <aside>
+                <div class="subTitle textAll title">
+                    <div class="text">
                         客戶畫像
                     </div>
-                </header>
-                <div style="height:74.5vh;overflow-y: scroll;">
-                    <div style="padding:25px 55px 0px 55px;;">
-                        <div id="level" style="font-weight:bold;color:#d32f2f;font-size:76px;text-align:center;">
+                </div>
+                <div class="rightContent">
+                    <div class="inner">
+                        <div id="level">
                         </div>
-                        <div id="id" style="text-align:center;margin-bottom:40px;">
+                        <div id="id">
                         </div>
-                        <div style="margin-bottom:40px;">
+                        <div class="generalMargin">
                             <div id="basic">
-
                             </div>
                         </div>
                         <div id="titleBetween">
                         </div>
-                        <section id="similar" style="font-weight:100;margin-bottom:40px;">
+                        <section id="similar" class="generalMargin">
                         </section>
                         <div id="titleNews">
                         </div>
                         <section>
                             <div id="newsTest">
-
                             </div>
                         </section>
                     </div>
                 </div>
-
-            </main>
-        </div>
+            </aside>
+        </main>
     </div>
-    <!-- </div> -->
     <script src="company.js"></script>
     <script>
         window.onload = () => {
