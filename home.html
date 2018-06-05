@@ -14,31 +14,31 @@
 
 <body id="body">
     <div style="max-width:1240px;margin:0 auto;">
-        <header style="outline:3px solid red;height:16vh;align-content:space-around;justify-content:center;z-index:1;background-color: white;min-width:1240px;position:fixed;-webkit-box-shadow: 0 4px 6px -6px #222; -moz-box-shadow: 0 4px 6px -6px #222;  box-shadow: 0 4px 6px -6px #222;display:flex">
-            <div style="outline:5px solid green;">
-                <div style="outline:2px solid red;height:15%">
+        <header style="height:16vh;align-content:space-around;justify-content:center;z-index:1;background-color:#0277bd;min-width:1240px;position:fixed;-webkit-box-shadow: 0 4px 6px -6px #222; -moz-box-shadow: 0 4px 6px -6px #222;  box-shadow: 0 4px 6px -6px #222;display:flex">
+            <div>
+                <div style="height:15%">
                 </div>
-                <div class="title textAll" style="outline:2px solid red;height:27%;letter-spacing: 25px;margin:auto;color:#2171c4;margin-right:-25px;">
+                <div class="title textAll" style="height:27%;letter-spacing: 25px;margin:auto;color:white;margin-right:-25px;">
                     CRM+找商機
                 </div>
-                <div style="outline:2px solid red;height:15%">
+                <div style="height:15%">
                 </div>
                 <div style="height:35%;display:flex;justify-content: center;align-items:center;">
-                    <div style="margin-right:18px;color:#ef7b7b;font-weight:bold;letter-spacing:3.5px">產品類別</div>
+                    <div style="margin-right:18px;color:white;font-weight:bold;letter-spacing:3.5px">產品類別</div>
                     <select id="test" onchange="showCompanyList()" required>
                             <option value="" disabled selected hidden>
                                 請選擇
                             </option>
                         </select>
                 </div>
-                <div style="outline:2px solid red;height:8%">
+                <div style="height:8%">
                 </div>
             </div>
         </header>
         <div style="padding-top:16vh;display:flex">
             <aside style="width:35%;">
-                <header class="subTitle textAll" style="outline:5px solid red;height:7vh;font-size:20px;display:flex;">
-                    <div style="color:#ef7b7b;margin:auto">
+                <header class="subTitle textAll" style="background-color:#004c8c;;height:7vh;font-size:20px;display:flex;">
+                    <div style="color:white;margin:auto">
                         推薦客戶
                     </div>
                 </header>
@@ -46,42 +46,42 @@
                     <div class="accordionItem" style="margin-bottom:10px;">
                         <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem(event)" class="accordionHead">
                             高度推薦
-                            <span id="hiLength" style="position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
+                            <span id="hiLength" style="color:white;position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
                         </div>
-                        <div class="accordionContent close" id="high" style="text-align:left;padding: 2px 0px;border: 1px solid #ddd">
+                        <div class="accordionContent close" id="high" style="text-align:left;padding: 2px 0px;border: 2px solid #0277bd;border-top:transparent">
                         </div>
                     </div>
                     <div class="accordionItem" style="margin-bottom:10px;">
                         <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem(event)" class="accordionHead">
                             中度推薦
-                            <span id="meLength" style="position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
+                            <span id="meLength" style="color:white;position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
                         </div>
-                        <div class="accordionContent close" id="medium" style="text-align:left;padding: 2px 0px;border: 1px solid #ddd">
+                        <div class="accordionContent close" id="medium" style="text-align:left;padding: 2px 0px;border: 2px solid #0277bd;border-top:transparent">
                         </div>
                     </div>
                     <div class="accordionItem" style="margin-bottom:10px;">
                         <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem(event)" class="accordionHead">低度推薦
-                            <span id="loLength" style="position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
+                            <span id="loLength" style="color:white;position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
                         </div>
-                        <div class="accordionContent close" id="low" style="padding: 2px 0px;border: 1px solid #ddd">
+                        <div class="accordionContent close" id="low" style="padding: 2px 0px;border: 2px solid #0277bd;border-top:transparent">
                         </div>
                     </div>
                 </div>
             </aside>
             <main style="width:65%;">
-                <header class="subTitle textAll" style="outline:5px solid red;height:7vh;font-size:20px;display:flex;">
-                    <div style="color:#ef7b7b;margin:auto">
+                <header class="subTitle textAll" style="background-color:#004c8c;;height:7vh;font-size:20px;display:flex;">
+                    <div style="color:white;margin:auto">
                         客戶畫像
                     </div>
                 </header>
                 <div style="height:74.5vh;overflow-y: scroll;">
-                    <div style="padding:25px 55px 0px 55px;outline:5px solid red;">
-                        <div id="level" style="font-size:58px;text-align:center;">
+                    <div style="padding:25px 55px 0px 55px;;">
+                        <div id="level" style="font-weight:bold;color:#d32f2f;font-size:76px;text-align:center;">
                         </div>
                         <div id="id" style="text-align:center;margin-bottom:40px;">
                         </div>
                         <div style="margin-bottom:40px;">
-                            <div id="basic" >
+                            <div id="basic">
 
                             </div>
                         </div>
@@ -91,8 +91,8 @@
                         </section>
                         <div id="titleNews">
                         </div>
-                        <section >
-                            <div id="newsTest" >
+                        <section>
+                            <div id="newsTest">
 
                             </div>
                         </section>
@@ -242,7 +242,7 @@
             document.getElementById('newsTest').textContent = '' //先清空上一筆
             let news = profile.news
             let div
-            for (let i in news) {  //5筆
+            for (let i in news) { //5筆
                 let node = document.createElement("DIV"); //create an element
                 // let textnode = document.createTextNode(news[i]); //create text
                 // node.appendChild(textnode); //append text to the element
@@ -272,7 +272,7 @@
         function showCustomer(e) {
             document.getElementById(e).textContent = '' //先清空上一筆
             document.getElementById('titleBetween').textContent = '相似公司' //先清空上一筆
-            document.getElementById('titleNews').textContent = '產訓新聞' //先清空上一筆
+            document.getElementById('titleNews').textContent = '產訊新聞' //先清空上一筆
 
             let companyInfo = Object.keys(profile[e]) //profile底下的下一層選項的'basic'或'similar'底下的東西
 
@@ -323,7 +323,7 @@
                 let key = companyInfo[i]
                 for (let j in title) {
 
-                    if( e === 'basic'){
+                    if (e === 'basic') {
                         // test
                         //div elements to hold the two divs inside
                         div = document.createElement("DIV")
@@ -385,7 +385,7 @@
 
         }
         //tooptip內容與位置
-        function showCoords(e){
+        function showCoords(e) {
             //tooltip位置
             let x = e.clientX
             let y = e.clientY
@@ -395,16 +395,17 @@
             info.style.top = calc(y)
 
             //硬幹,為了讓info icon也有字跑出
-            let parent = event.target.parentElement
-            info.textContent = parent.nodeName === 'SPAN'
-            ? similarContent[parent.textContent] //tooptip內容
-            : similarContent[event.target.textContent] //tooptip內容
+            let parent = e.target.parentElement
+            info.textContent = parent.nodeName === 'SPAN' ?
+                similarContent[parent.textContent] //tooptip內容
+                :
+                similarContent[e.target.textContent] //tooptip內容
 
         }
         const calc = (n) => `${n + 8}px`
 
         //mouseout時讓tooptip消失
-        function disappear(){
+        function disappear() {
             document.getElementById('info').style.visibility = 'hidden'
         }
     </script>

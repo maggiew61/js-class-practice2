@@ -33,11 +33,12 @@ font-family: Microsoft JhengHei;
 
 /* accordion style */
 .accordionHead { /*head*/
-    color: white;
+    color: #004c8c;
     letter-spacing: 3.5px;
-    background: #2785e8;
+    background: white;
     padding: 12px 0px;
     position: relative;
+    border: 3px solid #0277bd;
 }
 .open {
     -webkit-transform: scaleY(1);
@@ -73,9 +74,10 @@ font-family: Microsoft JhengHei;
 }
 
 #testid {
-    padding-left: 10px;
+    padding-left: 13px;
     letter-spacing: 3.5px;
     margin-bottom: 8px;
+    padding-top:7px;
 }
 #testStyle{
     display:flex;
@@ -96,12 +98,13 @@ font-family: Microsoft JhengHei;
 #titleBetween,#titleNews{
     font-weight:bold;
     margin-bottom:8px;
+    color:#004c8c;
 }
 #titleNews{
-    color:#2785e8
+    color:#004c8c;
 }
 #testBorder{
-    border:1px solid #134272;
+    border:2px solid #0277bd;
     padding:15px;
     margin-bottom: 15px;
 }
@@ -110,7 +113,7 @@ font-family: Microsoft JhengHei;
     font-weight:bold;
 }
 .fa-info-circle{
-    color: #2785e8;
+    color: #004c8c;
     cursor:pointer;
     font-size: 14px;
 }

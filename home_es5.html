@@ -7,9 +7,12 @@
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 
-<body>
+<body id="body">
     <div style="max-width:1240px;margin:0 auto;">
         <header style="outline:3px solid red;height:16vh;align-content:space-around;justify-content:center;z-index:1;background-color: white;min-width:1240px;position:fixed;-webkit-box-shadow: 0 4px 6px -6px #222; -moz-box-shadow: 0 4px 6px -6px #222;  box-shadow: 0 4px 6px -6px #222;display:flex">
             <div style="outline:5px solid green;">
@@ -84,7 +87,7 @@
                         </div>
                         <div id="titleBetween">
                         </div>
-                        <section id="tag" style="margin-bottom:40px;">
+                        <section id="similar" style="font-weight:100;margin-bottom:40px;">
                         </section>
                         <div id="titleNews">
                         </div>
@@ -102,6 +105,7 @@
     <!-- </div> -->
     <script src="company.js"></script>
     <script>
+
     window.onload = function () {
         show();
     };
@@ -116,7 +120,6 @@
     var content = document.getElementsByClassName('accordionContent');
 
     function toggleItem(e) {
-        console.log('toggleItem');
         var className = e.target.nextElementSibling.className; //= this.parentNode.className
         for (var j in content) {
             content[j].className = 'accordionContent close';
@@ -200,6 +203,7 @@
     }
 
     var profile = '';
+    var similarContent = void 0;
 
     function CustomerProfile(e) {
         var filterChoice = filterResponse;
@@ -211,7 +215,27 @@
 
         // 把資料放進組織型態那一區
         showCustomer('basic');
-        showCustomer('tag');
+        showCustomer('similar');
+
+        //放進 相似公司資料
+        // let similar = Object.keys(profile.similar)
+        // for (let i in similar){
+        //     let div = document.createElement("DIV")
+        //     div.setAttribute("id", "similarStyle")
+        //     let text = `${similar[i]}`
+        //
+        //     //test
+        //     let iNode = document.createElement("I")
+        //     iNode.setAttribute("class", "fas fa-info-circle")
+        //     console.log('iNode is',iNode)
+        //
+        //     // let node = document.createElement("DIV")
+        //     // <i class="fas fa-info-circle"></i>
+        //
+        //     div.innerHTML = text
+        //     document.getElementById('similar').appendChild(div)
+        //     document.getElementById('similar').appendChild(iNode)
+        // }
 
         document.getElementById('newsTest').textContent = ''; //先清空上一筆
         var news = profile.news;
@@ -242,15 +266,17 @@
         }
     }
 
+    //display '客戶畫像' contents
     function showCustomer(e) {
         document.getElementById(e).textContent = ''; //先清空上一筆
         document.getElementById('titleBetween').textContent = '相似公司'; //先清空上一筆
         document.getElementById('titleNews').textContent = '產訓新聞'; //先清空上一筆
 
-        var companyInfo = Object.keys(profile[e]); //profile底下的下一層選項的'basic'或'tag'底下的東西
+        var companyInfo = Object.keys(profile[e]); //profile底下的下一層選項的'basic'或'similar'底下的東西
 
         var basicTitle = ['組織型態：', '創立時間：', '行業：', '主要產品：'];
-        var tagTitle = ['客戶等級：', '產業類別：', '資本額：'];
+        similarTitle = Object.keys(profile.similar);
+        similarContent = profile.similar;
 
         // test
         // for (let i in companyInfo) {
@@ -287,36 +313,88 @@
 
         // <div>first then append sth inside
         for (var _i6 in companyInfo) {
-            console.log('a');
-            var title = e === 'basic' ? basicTitle : tagTitle;
+            var title = e === 'basic' ? basicTitle : similarTitle;
             var p = void 0;
             var div = void 0;
+            var info = void 0;
             var key = companyInfo[_i6];
             for (var j in title) {
-                // test
-                //div elements to hold the two divs inside
-                div = document.createElement("DIV");
-                div.setAttribute("id", "testStyle");
 
-                //test
-                divChild = document.createElement("DIV");
-                divChild.setAttribute("id", "testStyle2");
-                var before = '' + title[_i6];
-                divChild.innerHTML = before;
+                if (e === 'basic') {
+                    // test
+                    //div elements to hold the two divs inside
+                    div = document.createElement("DIV");
+                    div.setAttribute("id", "testStyle");
 
-                p = document.createElement("P");
-                var keyValue = profile[e][key];
-                console.log('title[i] is', title[_i6]);
-                var text = '' + keyValue;
-                console.log('text is', text);
-                p.innerHTML = text;
+                    //test
+                    divChild = document.createElement("DIV");
+                    divChild.setAttribute("id", "testStyle2");
+                    var before = '' + title[_i6];
+                    divChild.innerHTML = before;
 
-                div.appendChild(divChild);
-                div.appendChild(p);
+                    p = document.createElement("P");
+                    var keyValue = profile[e][key];
+                    var text = '' + keyValue;
+                    p.innerHTML = text;
+
+                    div.appendChild(divChild);
+                    div.appendChild(p);
+                } else {
+                    // test
+                    //div elements to hold the two divs inside
+                    div = document.createElement("DIV");
+                    div.setAttribute("id", "similarStyle");
+
+                    //add info text
+                    info = document.createElement("SPAN");
+                    info.setAttribute("id", "info");
+                    var _text = profile[e][title[_i6]];
+                    info.innerHTML = _text;
+
+                    //test
+                    divChild = document.createElement("SPAN");
+                    divChild.setAttribute("id", "similarId");
+                    var _before = '' + title[_i6];
+                    divChild.innerHTML = _before;
+
+                    //add event listener
+                    divChild.addEventListener("mouseover", showCoords);
+                    divChild.addEventListener("mouseout", disappear);
+
+                    var iNode = document.createElement("I");
+                    iNode.setAttribute("class", "fas fa-info-circle");
+                    divChild.appendChild(iNode);
+
+                    div.appendChild(divChild);
+                    // div.appendChild(iNode)
+                    div.appendChild(info);
+                }
             }
-            console.log('c');
             document.getElementById(e).appendChild(div); //append the element to html page
         }
+    }
+    //tooptip內容與位置
+    function showCoords(e) {
+        //tooltip位置
+        var x = e.clientX;
+        var y = e.clientY;
+        var info = document.getElementById('info');
+        info.style.visibility = 'visible';
+        info.style.left = calc(x);
+        info.style.top = calc(y);
+
+        //硬幹,為了讓info icon也有字跑出
+        var parent = event.target.parentElement;
+        info.textContent = parent.nodeName === 'SPAN' ? similarContent[parent.textContent] //tooptip內容
+        : similarContent[event.target.textContent]; //tooptip內容
+    }
+    var calc = function calc(n) {
+        return n + 8 + 'px';
+    };
+
+    //mouseout時讓tooptip消失
+    function disappear() {
+        document.getElementById('info').style.visibility = 'hidden';
     }
     </script>
 
