@@ -1,7 +1,10 @@
-$gap : 15%;
+$medium : "screen and (max-width:1560px)";
 body {
     font-family: Microsoft JhengHei,times;
     font-size: 18px;
+    @media #{$medium}{
+        font-size: 16px;
+    }
     .container{
         max-width:1240px;
         margin:0 auto;
@@ -29,8 +32,12 @@ header{
     min-width:1240px;
     position:fixed;
     display:flex;
+
     .gap{
-        height:$gap;
+        height:15%;
+        @media #{$medium}{
+            height:12%;
+        }
     }
     .title {
         text-align: center;
@@ -39,14 +46,24 @@ header{
         position: relative;
         height:27%;
         letter-spacing: 45px;
-        margin-right:-45px;
         margin:auto;
+        margin-right:-45px;
         color:white;
+        @media #{$medium}{
+            font-size: 22px;
+            letter-spacing: 43px;
+            margin-right:-43px;
+        }
         i{
             position: absolute;
-            left: 156px;
-            top: -11px;
-            font-size: 18px
+            left: 160px;
+            top: -1px;
+            font-size: 14px;
+            @media #{$medium}{
+                font-size: 12px;
+                left: 140px;
+                top: -1px;
+            }
         }
     }
     .categoryFilter{
@@ -60,32 +77,43 @@ header{
         }
     }
     .smallGap{
-        height:8%
+        height:8%;
     }
 }
 main{
     padding-top:13vh;
+    height: 87vh;
     display:flex;
     .title{
         margin-top:8px;
         background-color:#004c8c;
-        height:5.5vh;
+        padding: 18px 0px;
         font-size:20px;
         display:flex;
+        @media #{$medium}{
+            font-size:18px;
+        }
     }
     .text{
         color:white;
-        margin:auto
+        margin:auto;
+        @media #{$medium}{
+            font-size: 16px;
+        }
 }
 
 }
 aside:first-child{
     width:35%;
+    overflow: hidden;
     .leftContent{
-        margin-top:10px;
+        margin-top:20px;
         background-color:#fbfdff;
-        height:79.5vh;
+        height:78vh;
         overflow-y: scroll;
+        @media #{$medium}{
+            height:77vh;
+        }
         .accordionItem{
             margin-bottom:10px;
             .accordionHead { /*head*/
@@ -119,24 +147,32 @@ aside:first-child{
 }
 aside:last-child{
     width:65%;
+    overflow: hidden;
     .rightContent{
-        margin-top:10px;
+        margin-top:20px;
         background-color:#fbfdff;
-        height:79.5vh;
+        height:78vh;
         overflow-y: scroll;
+        @media #{$medium}{
+            height:77vh;
+        }
         .inner{
-            padding:25px 55px 0px 55px
+            padding:0px 55px 0px 55px;
         }
         #level{
+            line-height:52px;
             font-weight:bold;
             color:#d32f2f;
             font-size:76px;
             text-align:center;
+            @media #{$medium}{
+                font-size:70px;
+            }
         }
         #id{
         font-weight:bold;
         text-align:center;
-        margin-bottom:40px;
+        margin:15px 0px;
         }
     }
 }
@@ -154,17 +190,22 @@ div{
 select {
     font-size:16px;
     outline: 1px solid #505050;
-height: 40px;
-/* border: none !important; */
-outline: none!important;
-/* box-shadow: 1px 3px 8px rgba(0, 0, 0, .5); */
-width: 180px;
-padding: 3px;
-/* border: 1px solid grey; */
-border-radius: 3px;
-color: black;
-font-family: Microsoft JhengHei;
-}
+    height: 40px;
+    /* border: none !important; */
+    outline: none!important;
+    /* box-shadow: 1px 3px 8px rgba(0, 0, 0, .5); */
+    width: 180px;
+    padding: 3px;
+    /* border: 1px solid grey; */
+    border-radius: 3px;
+    color: black;
+    font-family: Microsoft JhengHei;
+    @media #{$medium}{
+        font-size:16px;
+        height: 36px;
+        width: 165px;
+    }
+    }
 
 /* accordion style */
 .open {

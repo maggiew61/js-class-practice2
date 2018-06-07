@@ -25,7 +25,7 @@
                 <div class="gap">
                 </div>
                 <div class="categoryFilter">
-                    <div class="textAll bold">產品類別</div>
+                    <div class="textAll">產品類別</div>
                     <select
                         id="test"
                         onchange="showCompanyList()" required>
@@ -45,7 +45,10 @@
                         推薦客戶
                     </div>
                 </div>
+
+
                 <div class="leftContent">
+
                     <div class="accordionItem">
                         <div
                         onclick="toggleItem(event)"
@@ -224,26 +227,6 @@
             showCustomer('basic')
             showCustomer('similar')
 
-            //放進 相似公司資料
-            // let similar = Object.keys(profile.similar)
-            // for (let i in similar){
-            //     let div = document.createElement("DIV")
-            //     div.setAttribute("id", "similarStyle")
-            //     let text = `${similar[i]}`
-            //
-            //     //test
-            //     let iNode = document.createElement("I")
-            //     iNode.setAttribute("class", "fas fa-info-circle")
-            //     console.log('iNode is',iNode)
-            //
-            //     // let node = document.createElement("DIV")
-            //     // <i class="fas fa-info-circle"></i>
-            //
-            //     div.innerHTML = text
-            //     document.getElementById('similar').appendChild(div)
-            //     document.getElementById('similar').appendChild(iNode)
-            // }
-
             document.getElementById('newsTest').textContent = '' //先清空上一筆
             let news = profile.news
             let div
@@ -284,40 +267,6 @@
             let basicTitle = ['組織型態：', '創立時間：', '行業：', '主要產品：']
             similarTitle = Object.keys(profile.similar)
             similarContent = profile.similar
-
-            // test
-            // for (let i in companyInfo) {
-            //     let title = e === 'basic' ? basicTitle : tagTitle
-            //     let p
-            //     let key = companyInfo[i]
-            //     let keyValue = profile[e][key]
-            //     for (let j in title) {
-            //         p = document.createElement("P")
-            //         let text = `${title[j]}${keyValue}`
-            //         p.innerHTML = text
-            //     }
-            //     document.getElementById(e).appendChild(p) //append the element to html page
-            // }
-            // // test
-
-
-
-            // for (let i in companyInfo) {
-            //     console.log('a')
-            //     let title = e === 'basic' ? basicTitle : tagTitle
-            //     let p
-            //     for (let j in title) {
-            //         p = document.createElement("P")
-            //         let key = companyInfo[i]
-            //         let keyValue = profile[e][key]
-            //         console.log('title[i] is',title[i])
-            //         let text = `${title[i]}${keyValue}`
-            //         console.log('text is',text)
-            //         p.innerHTML = text
-            //     }
-            //     console.log('c')
-            //     document.getElementById(e).appendChild(p) //append the element to html page
-            // }
 
             // <div>first then append sth inside
             for (let i in companyInfo) {

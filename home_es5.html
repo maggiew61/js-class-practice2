@@ -13,389 +13,343 @@
 </head>
 
 <body id="body">
-    <div style="max-width:1240px;margin:0 auto;">
-        <header style="outline:3px solid red;height:16vh;align-content:space-around;justify-content:center;z-index:1;background-color: white;min-width:1240px;position:fixed;-webkit-box-shadow: 0 4px 6px -6px #222; -moz-box-shadow: 0 4px 6px -6px #222;  box-shadow: 0 4px 6px -6px #222;display:flex">
-            <div style="outline:5px solid green;">
-                <div style="outline:2px solid red;height:15%">
+    <div class="container">
+        <header>
+            <div>
+                <div class="gap">
                 </div>
-                <div class="title textAll" style="outline:2px solid red;height:27%;letter-spacing: 25px;margin:auto;color:#2171c4;margin-right:-25px;">
-                    CRM+找商機
+                <div class="title textAll">
+                    CRM找商機
+                    <i class="fas fa-plus"></i>
                 </div>
-                <div style="outline:2px solid red;height:15%">
+                <div class="gap">
                 </div>
-                <div style="height:35%;display:flex;justify-content: center;align-items:center;">
-                    <div style="margin-right:18px;color:#ef7b7b;font-weight:bold;letter-spacing:3.5px">產品類別</div>
-                    <select id="test" onchange="showCompanyList()" required>
+                <div class="categoryFilter">
+                    <div class="textAll">產品類別</div>
+                    <select
+                        id="test"
+                        onchange="showCompanyList()" required>
                             <option value="" disabled selected hidden>
                                 請選擇
                             </option>
-                        </select>
+                    </select>
                 </div>
-                <div style="outline:2px solid red;height:8%">
+                <div class="smallGap">
                 </div>
             </div>
         </header>
-        <div style="padding-top:16vh;display:flex">
-            <aside style="width:35%;">
-                <header class="subTitle textAll" style="outline:5px solid red;height:7vh;font-size:20px;display:flex;">
-                    <div style="color:#ef7b7b;margin:auto">
+        <main>
+            <aside>
+                <div class="subTitle textAll title" >
+                    <div class="text">
                         推薦客戶
                     </div>
-                </header>
-                <div style="height:74.5vh;overflow-y: scroll;">
-                    <div class="accordionItem" style="margin-bottom:10px;">
-                        <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem(event)" class="accordionHead">
+                </div>
+
+
+                <div class="leftContent">
+
+                    <div class="accordionItem">
+                        <div
+                        onclick="toggleItem(event)"
+                        class="accordionHead">
                             高度推薦
-                            <span id="hiLength" style="position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
+                            <span id="hiLength" class="length"></span>
                         </div>
-                        <div class="accordionContent close" id="high" style="text-align:left;padding: 2px 0px;border: 1px solid #ddd">
+                        <div class="accordionContent close" id="high">
                         </div>
                     </div>
-                    <div class="accordionItem" style="margin-bottom:10px;">
-                        <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem(event)" class="accordionHead">
+                    <div class="accordionItem">
+                        <div
+                        onclick="toggleItem(event)"
+                        class="accordionHead">
                             中度推薦
-                            <span id="meLength" style="position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
+                            <span id="meLength" class="length"></span>
                         </div>
-                        <div class="accordionContent close" id="medium" style="text-align:left;padding: 2px 0px;border: 1px solid #ddd">
+                        <div class="accordionContent close" id="medium">
                         </div>
                     </div>
-                    <div class="accordionItem" style="margin-bottom:10px;">
-                        <div style="padding-left:13px;cursor:pointer;text-align: left;border-radius:3px;" onclick="toggleItem(event)" class="accordionHead">低度推薦
-                            <span id="loLength" style="position:absolute;right:5px;background-color: #134272;padding: 2px 22px;border-radius: 15px;"></span>
+                    <div class="accordionItem">
+                        <div
+                        onclick="toggleItem(event)"
+                        class="accordionHead">低度推薦
+                            <span id="loLength" class="length"></span>
                         </div>
-                        <div class="accordionContent close" id="low" style="padding: 2px 0px;border: 1px solid #ddd">
+                        <div class="accordionContent close" id="low">
                         </div>
                     </div>
                 </div>
             </aside>
-            <main style="width:65%;">
-                <header class="subTitle textAll" style="outline:5px solid red;height:7vh;font-size:20px;display:flex;">
-                    <div style="color:#ef7b7b;margin:auto">
+            <aside>
+                <div class="subTitle textAll title">
+                    <div class="text">
                         客戶畫像
                     </div>
-                </header>
-                <div style="height:74.5vh;overflow-y: scroll;">
-                    <div style="padding:25px 55px 0px 55px;outline:5px solid red;">
-                        <div id="level" style="font-size:58px;text-align:center;">
+                </div>
+                <div class="rightContent">
+                    <div class="inner">
+                        <div id="level">
                         </div>
-                        <div id="id" style="text-align:center;margin-bottom:40px;">
+                        <div id="id">
                         </div>
-                        <div style="margin-bottom:40px;">
-                            <div id="basic" >
-
+                        <div class="generalMargin">
+                            <div id="basic">
                             </div>
                         </div>
                         <div id="titleBetween">
                         </div>
-                        <section id="similar" style="font-weight:100;margin-bottom:40px;">
+                        <section id="similar" class="generalMargin">
                         </section>
                         <div id="titleNews">
                         </div>
-                        <section >
-                            <div id="newsTest" >
-
+                        <section>
+                            <div id="newsTest">
                             </div>
                         </section>
                     </div>
                 </div>
-
-            </main>
-        </div>
+            </aside>
+        </main>
     </div>
-    <!-- </div> -->
     <script src="company.js"></script>
     <script>
+window.onload = function () {
+show();
+};
+// 幾筆推薦公司, 預設顯示為０
+var lengthArr = ['hiLength', 'meLength', 'loLength'];
+for (var i in lengthArr) {
+var number = lengthArr[i];
+document.getElementById(number).textContent = 0;
+}
 
-    window.onload = function () {
-        show();
-    };
-    // 幾筆推薦公司, 預設顯示為０
-    var lengthArr = ['hiLength', 'meLength', 'loLength'];
-    for (var i in lengthArr) {
-        var number = lengthArr[i];
-        document.getElementById(number).textContent = 0;
-    }
+//打開關起功能
+var content = document.getElementsByClassName('accordionContent');
 
-    //打開關起功能
-    var content = document.getElementsByClassName('accordionContent');
+function toggleItem(e) {
+var className = e.target.nextElementSibling.className; //= this.parentNode.className
+for (var j in content) {
+    content[j].className = 'accordionContent close';
+}
+if (className === 'accordionContent close') {
+    e.target.nextElementSibling.className = 'accordionContent open';
+}
+}
 
-    function toggleItem(e) {
-        var className = e.target.nextElementSibling.className; //= this.parentNode.className
-        for (var j in content) {
-            content[j].className = 'accordionContent close';
-        }
-        if (className === 'accordionContent close') {
-            e.target.nextElementSibling.className = 'accordionContent open';
-        }
-    }
+var filterArray = Object.keys(data2);
+//第1個filter
+function show() {
+for (var _i in filterArray) {
+    var node = document.createElement("OPTION");
+    var textnode = document.createTextNode(filterArray[_i]);
+    node.appendChild(textnode);
+    document.getElementById("test").appendChild(node);
+}
+}
 
-    var filterArray = Object.keys(data2);
-    //第1個filter
-    function show() {
-        for (var _i in filterArray) {
-            var node = document.createElement("OPTION");
-            var textnode = document.createTextNode(filterArray[_i]);
-            node.appendChild(textnode);
-            document.getElementById("test").appendChild(node);
-        }
-    }
+var filterResponse = '';
 
-    var filterResponse = '';
+//顯示 推薦客戶的list
+function showCompanyList() {
+//清空上一筆資料
+document.getElementById("high").textContent = '';
+document.getElementById("medium").textContent = '';
+document.getElementById("low").textContent = '';
 
-    //顯示 推薦客戶的list
-    function showCompanyList() {
-        //清空上一筆資料
-        document.getElementById("high").textContent = '';
-        document.getElementById("medium").textContent = '';
-        document.getElementById("low").textContent = '';
+var a = document.getElementById("test").value;
+filterResponse = a;
 
-        var a = document.getElementById("test").value;
-        filterResponse = a;
+var hiLength = data2[filterResponse].list.hi.length;
+var meLength = data2[filterResponse].list.me.length;
+var loLength = data2[filterResponse].list.lo.length;
+document.getElementById('hiLength').textContent = hiLength;
+document.getElementById('meLength').textContent = meLength;
+document.getElementById('loLength').textContent = loLength;
 
-        var hiLength = data2[filterResponse].list.hi.length;
-        var meLength = data2[filterResponse].list.me.length;
-        var loLength = data2[filterResponse].list.lo.length;
-        document.getElementById('hiLength').textContent = hiLength;
-        document.getElementById('meLength').textContent = meLength;
-        document.getElementById('loLength').textContent = loLength;
+//抓資料出來
+var high = filterResponse in data2 ? data2[filterResponse].list.hi : null;
+var medium = filterResponse in data2 ? data2[filterResponse].list.me : null;
+var low = filterResponse in data2 ? data2[filterResponse].list.lo : null;
 
-        //抓資料出來
-        var high = filterResponse in data2 ? data2[filterResponse].list.hi : null;
-        var medium = filterResponse in data2 ? data2[filterResponse].list.me : null;
-        var low = filterResponse in data2 ? data2[filterResponse].list.lo : null;
+for (var _i2 in high) {
 
-        for (var _i2 in high) {
+    var node = document.createElement("DIV");
+    var textnode = document.createTextNode(high[_i2]);
 
-            var node = document.createElement("DIV");
-            var textnode = document.createTextNode(high[_i2]);
+    //add id attribtue
+    // https://stackoverflow.com/questions/19625646/javascript-adding-an-id-attribute-to-another-created-element
+    node.setAttribute("id", "testid");
+    node.setAttribute("style", "cursor:pointer");
+    node.appendChild(textnode);
 
-            //add id attribtue
-            // https://stackoverflow.com/questions/19625646/javascript-adding-an-id-attribute-to-another-created-element
-            node.setAttribute("id", "testid");
-            node.setAttribute("style", "cursor:pointer");
-            node.appendChild(textnode);
+    //add onclick event to customer list
+    // https://stackoverflow.com/questions/13915702/adding-event-listeners-to-multiple-elements
+    node.addEventListener("click", CustomerProfile);
+    document.getElementById("high").appendChild(node);
+}
 
-            //add onclick event to customer list
-            // https://stackoverflow.com/questions/13915702/adding-event-listeners-to-multiple-elements
-            node.addEventListener("click", CustomerProfile);
-            document.getElementById("high").appendChild(node);
-        }
+for (var _i3 in medium) {
+    var node = document.createElement("DIV");
+    var textnode = document.createTextNode(medium[_i3]);
+    node.setAttribute("id", "testid");
+    node.setAttribute("style", "cursor:pointer");
+    node.appendChild(textnode);
+    node.addEventListener("click", CustomerProfile);
+    document.getElementById("medium").appendChild(node);
+}
 
-        for (var _i3 in medium) {
-            var node = document.createElement("DIV");
-            var textnode = document.createTextNode(medium[_i3]);
-            node.setAttribute("id", "testid");
-            node.setAttribute("style", "cursor:pointer");
-            node.appendChild(textnode);
-            node.addEventListener("click", CustomerProfile);
-            document.getElementById("medium").appendChild(node);
-        }
+for (var _i4 in low) {
+    var node = document.createElement("DIV");
+    node.setAttribute("style", "cursor:pointer");
+    var textnode = document.createTextNode(low[_i4]);
+    node.setAttribute("id", "testid");
+    node.appendChild(textnode);
+    node.addEventListener("click", CustomerProfile);
+    document.getElementById("low").appendChild(node);
+}
+}
 
-        for (var _i4 in low) {
-            var node = document.createElement("DIV");
-            node.setAttribute("style", "cursor:pointer");
-            var textnode = document.createTextNode(low[_i4]);
-            node.setAttribute("id", "testid");
-            node.appendChild(textnode);
-            node.addEventListener("click", CustomerProfile);
-            document.getElementById("low").appendChild(node);
-        }
-    }
+var profile = '';
+var similarContent = void 0;
 
-    var profile = '';
-    var similarContent = void 0;
+function CustomerProfile(e) {
+var filterChoice = filterResponse;
+var a = e.target.textContent; //get the textcontent of element clicked
+profile = a in data2[filterResponse].profile ? data2[filterResponse].profile[a] : null;
+//把資料放進 客戶畫像 裡面
+document.getElementById('level').textContent = profile.level;
+document.getElementById('id').textContent = 'ID:' + profile.id;
 
-    function CustomerProfile(e) {
-        var filterChoice = filterResponse;
-        var a = e.target.textContent; //get the textcontent of element clicked
-        profile = a in data2[filterResponse].profile ? data2[filterResponse].profile[a] : null;
-        //把資料放進 客戶畫像 裡面
-        document.getElementById('level').textContent = profile.level;
-        document.getElementById('id').textContent = 'ID:' + profile.id;
+// 把資料放進組織型態那一區
+showCustomer('basic');
+showCustomer('similar');
 
-        // 把資料放進組織型態那一區
-        showCustomer('basic');
-        showCustomer('similar');
+document.getElementById('newsTest').textContent = ''; //先清空上一筆
+var news = profile.news;
+var div = void 0;
+for (var _i5 in news) {
+    //5筆
+    var node = document.createElement("DIV"); //create an element
+    // let textnode = document.createTextNode(news[i]); //create text
+    // node.appendChild(textnode); //append text to the element
 
-        //放進 相似公司資料
-        // let similar = Object.keys(profile.similar)
-        // for (let i in similar){
-        //     let div = document.createElement("DIV")
-        //     div.setAttribute("id", "similarStyle")
-        //     let text = `${similar[i]}`
-        //
-        //     //test
-        //     let iNode = document.createElement("I")
-        //     iNode.setAttribute("class", "fas fa-info-circle")
-        //     console.log('iNode is',iNode)
-        //
-        //     // let node = document.createElement("DIV")
-        //     // <i class="fas fa-info-circle"></i>
-        //
-        //     div.innerHTML = text
-        //     document.getElementById('similar').appendChild(div)
-        //     document.getElementById('similar').appendChild(iNode)
-        // }
+    //test
+    div = document.createElement("DIV");
+    div.setAttribute("id", "testBorder");
 
-        document.getElementById('newsTest').textContent = ''; //先清空上一筆
-        var news = profile.news;
-        var div = void 0;
-        for (var _i5 in news) {
-            //5筆
-            var node = document.createElement("DIV"); //create an element
-            // let textnode = document.createTextNode(news[i]); //create text
-            // node.appendChild(textnode); //append text to the element
+    var title = document.createElement("DIV");
+    title.setAttribute("id", "marginBelow");
+    var text = '' + news[_i5][0];
+    title.innerHTML = text;
 
-            //test
+    var _content = document.createElement("DIV");
+    var contentText = '' + news[_i5][1];
+    _content.innerHTML = contentText;
+
+    div.appendChild(title);
+    div.appendChild(_content);
+    //test
+    document.getElementById("newsTest").appendChild(div); //append the element to html page
+}
+}
+
+//display '客戶畫像' contents
+function showCustomer(e) {
+document.getElementById(e).textContent = ''; //先清空上一筆
+document.getElementById('titleBetween').textContent = '相似公司'; //先清空上一筆
+document.getElementById('titleNews').textContent = '產訊新聞'; //先清空上一筆
+
+var companyInfo = Object.keys(profile[e]); //profile底下的下一層選項的'basic'或'similar'底下的東西
+
+var basicTitle = ['組織型態：', '創立時間：', '行業：', '主要產品：'];
+similarTitle = Object.keys(profile.similar);
+similarContent = profile.similar;
+
+// <div>first then append sth inside
+for (var _i6 in companyInfo) {
+    var title = e === 'basic' ? basicTitle : similarTitle;
+    var p = void 0;
+    var div = void 0;
+    var info = void 0;
+    var key = companyInfo[_i6];
+    for (var j in title) {
+
+        if (e === 'basic') {
+            // test
+            //div elements to hold the two divs inside
             div = document.createElement("DIV");
-            div.setAttribute("id", "testBorder");
+            div.setAttribute("id", "testStyle");
 
-            var title = document.createElement("DIV");
-            title.setAttribute("id", "marginBelow");
-            var text = '' + news[_i5][0];
-            title.innerHTML = text;
-
-            var _content = document.createElement("DIV");
-            var contentText = '' + news[_i5][1];
-            _content.innerHTML = contentText;
-
-            div.appendChild(title);
-            div.appendChild(_content);
             //test
-            document.getElementById("newsTest").appendChild(div); //append the element to html page
+            divChild = document.createElement("DIV");
+            divChild.setAttribute("id", "testStyle2");
+            var before = '' + title[_i6];
+            divChild.innerHTML = before;
+
+            p = document.createElement("P");
+            var keyValue = profile[e][key];
+            var text = '' + keyValue;
+            p.innerHTML = text;
+
+            div.appendChild(divChild);
+            div.appendChild(p);
+        } else {
+            // test
+            //div elements to hold the two divs inside
+            div = document.createElement("DIV");
+            div.setAttribute("id", "similarStyle");
+
+            //add info text
+            info = document.createElement("SPAN");
+            info.setAttribute("id", "info");
+            var _text = profile[e][title[_i6]];
+            info.innerHTML = _text;
+
+            //test
+            divChild = document.createElement("SPAN");
+            divChild.setAttribute("id", "similarId");
+            var _before = '' + title[_i6];
+            divChild.innerHTML = _before;
+
+            //add event listener
+            divChild.addEventListener("mouseover", showCoords);
+            divChild.addEventListener("mouseout", disappear);
+
+            var iNode = document.createElement("I");
+            iNode.setAttribute("class", "fas fa-info-circle");
+            divChild.appendChild(iNode);
+
+            div.appendChild(divChild);
+            // div.appendChild(iNode)
+            div.appendChild(info);
         }
     }
+    document.getElementById(e).appendChild(div); //append the element to html page
+}
+}
+//tooptip內容與位置
+function showCoords(e) {
+//tooltip位置
+var x = e.clientX;
+var y = e.clientY;
+var info = document.getElementById('info');
+info.style.visibility = 'visible';
+info.style.left = calc(x);
+info.style.top = calc(y);
 
-    //display '客戶畫像' contents
-    function showCustomer(e) {
-        document.getElementById(e).textContent = ''; //先清空上一筆
-        document.getElementById('titleBetween').textContent = '相似公司'; //先清空上一筆
-        document.getElementById('titleNews').textContent = '產訓新聞'; //先清空上一筆
+//硬幹,為了讓info icon也有字跑出
+var parent = e.target.parentElement;
+info.textContent = parent.nodeName === 'SPAN' ? similarContent[parent.textContent] //tooptip內容
+: similarContent[e.target.textContent]; //tooptip內容
+}
+var calc = function calc(n) {
+return n + 8 + 'px';
+};
 
-        var companyInfo = Object.keys(profile[e]); //profile底下的下一層選項的'basic'或'similar'底下的東西
-
-        var basicTitle = ['組織型態：', '創立時間：', '行業：', '主要產品：'];
-        similarTitle = Object.keys(profile.similar);
-        similarContent = profile.similar;
-
-        // test
-        // for (let i in companyInfo) {
-        //     let title = e === 'basic' ? basicTitle : tagTitle
-        //     let p
-        //     let key = companyInfo[i]
-        //     let keyValue = profile[e][key]
-        //     for (let j in title) {
-        //         p = document.createElement("P")
-        //         let text = `${title[j]}${keyValue}`
-        //         p.innerHTML = text
-        //     }
-        //     document.getElementById(e).appendChild(p) //append the element to html page
-        // }
-        // // test
-
-
-        // for (let i in companyInfo) {
-        //     console.log('a')
-        //     let title = e === 'basic' ? basicTitle : tagTitle
-        //     let p
-        //     for (let j in title) {
-        //         p = document.createElement("P")
-        //         let key = companyInfo[i]
-        //         let keyValue = profile[e][key]
-        //         console.log('title[i] is',title[i])
-        //         let text = `${title[i]}${keyValue}`
-        //         console.log('text is',text)
-        //         p.innerHTML = text
-        //     }
-        //     console.log('c')
-        //     document.getElementById(e).appendChild(p) //append the element to html page
-        // }
-
-        // <div>first then append sth inside
-        for (var _i6 in companyInfo) {
-            var title = e === 'basic' ? basicTitle : similarTitle;
-            var p = void 0;
-            var div = void 0;
-            var info = void 0;
-            var key = companyInfo[_i6];
-            for (var j in title) {
-
-                if (e === 'basic') {
-                    // test
-                    //div elements to hold the two divs inside
-                    div = document.createElement("DIV");
-                    div.setAttribute("id", "testStyle");
-
-                    //test
-                    divChild = document.createElement("DIV");
-                    divChild.setAttribute("id", "testStyle2");
-                    var before = '' + title[_i6];
-                    divChild.innerHTML = before;
-
-                    p = document.createElement("P");
-                    var keyValue = profile[e][key];
-                    var text = '' + keyValue;
-                    p.innerHTML = text;
-
-                    div.appendChild(divChild);
-                    div.appendChild(p);
-                } else {
-                    // test
-                    //div elements to hold the two divs inside
-                    div = document.createElement("DIV");
-                    div.setAttribute("id", "similarStyle");
-
-                    //add info text
-                    info = document.createElement("SPAN");
-                    info.setAttribute("id", "info");
-                    var _text = profile[e][title[_i6]];
-                    info.innerHTML = _text;
-
-                    //test
-                    divChild = document.createElement("SPAN");
-                    divChild.setAttribute("id", "similarId");
-                    var _before = '' + title[_i6];
-                    divChild.innerHTML = _before;
-
-                    //add event listener
-                    divChild.addEventListener("mouseover", showCoords);
-                    divChild.addEventListener("mouseout", disappear);
-
-                    var iNode = document.createElement("I");
-                    iNode.setAttribute("class", "fas fa-info-circle");
-                    divChild.appendChild(iNode);
-
-                    div.appendChild(divChild);
-                    // div.appendChild(iNode)
-                    div.appendChild(info);
-                }
-            }
-            document.getElementById(e).appendChild(div); //append the element to html page
-        }
-    }
-    //tooptip內容與位置
-    function showCoords(e) {
-        //tooltip位置
-        var x = e.clientX;
-        var y = e.clientY;
-        var info = document.getElementById('info');
-        info.style.visibility = 'visible';
-        info.style.left = calc(x);
-        info.style.top = calc(y);
-
-        //硬幹,為了讓info icon也有字跑出
-        var parent = event.target.parentElement;
-        info.textContent = parent.nodeName === 'SPAN' ? similarContent[parent.textContent] //tooptip內容
-        : similarContent[event.target.textContent]; //tooptip內容
-    }
-    var calc = function calc(n) {
-        return n + 8 + 'px';
-    };
-
-    //mouseout時讓tooptip消失
-    function disappear() {
-        document.getElementById('info').style.visibility = 'hidden';
-    }
+//mouseout時讓tooptip消失
+function disappear() {
+document.getElementById('info').style.visibility = 'hidden';
+}
     </script>
 
 </body>

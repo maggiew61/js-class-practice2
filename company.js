@@ -18,7 +18,7 @@ const data2= {
     },
     "profile": {
       "11": {
-        "level": "a",
+        "level": "A",
         "id": 11,
         "basic": {
           "sy": "一般客戶",
