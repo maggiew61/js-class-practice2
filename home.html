@@ -113,6 +113,31 @@
     </div>
     <script src="company.js"></script>
     <script>
+    //test
+    class AddressbookControl {
+      constructor(view){
+        this.view = view
+      }
+      init(){
+        this.view.init()
+      }
+      dataHandle(){
+        return contactsData
+      }
+    }
+  class AddressbookView{
+      init(){
+        this.renderContactListModule()
+        this.renderContactDetailsModule(0)
+      }
+      renderContactListModule(){
+      }
+  }
+  const view = new AddressbookView()
+  const control = new AddressbookControl(view)
+  control.init()
+    //test
+
         window.onload = () => {
             show()
         };
