@@ -1,4 +1,4 @@
-const dataJson= {
+const company= {
   "HR": {
     "list": {
       "hi": [
@@ -182,3 +182,4 @@ const dataJson= {
     }
   }
 }
+export {company}

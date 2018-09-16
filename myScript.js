@@ -1,11 +1,10 @@
-import { sum } from './lib.js';
+// import { sum } from './lib.js';
+//
+// console.log( sum(1,2,3,4) ); // 10
 
-console.log( sum(1,2,3,4) ); // 10
-class HRSystemModel { //model; 資料匯入地方
-    getData() { //這裡是要撈 假設的 高中低資料
-        return dataJson
-    }
-}
+import {company} from './company.js'
+// console.log('company is',company)
+import HRSystemModel from './model/HRSystemModel.js'
 class HRSystemController {
     constructor(aaa, bbb) { //why we need construcotor and why no return and ojbect; https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS
         this.model = aaa //是let model
@@ -68,7 +67,7 @@ class HRSystemView{
 
   }
 }
-const HRModel = new HRSystemModel()
+const HRModel = new HRSystemModel(hrData)
 const HRView = new HRSystemView()
 const HRController = new HRSystemController(HRModel, HRView) //feed model's data to controller
 HRController.init()
