@@ -1,4 +1,4 @@
-const data2= {
+const dataJson= {
   "HR": {
     "list": {
       "hi": [
