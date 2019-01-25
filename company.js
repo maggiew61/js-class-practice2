@@ -1,4 +1,4 @@
-const company= {
+export const company= {
   "HR": {
     "list": {
       "hi": [
@@ -182,4 +182,4 @@ const company= {
     }
   }
 }
-export {company}
+// export {company}

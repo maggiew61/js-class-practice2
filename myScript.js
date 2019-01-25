@@ -67,7 +67,7 @@ class HRSystemView{
 
   }
 }
-const HRModel = new HRSystemModel(hrData)
+const HRModel = new HRSystemModel(company)
 const HRView = new HRSystemView()
 const HRController = new HRSystemController(HRModel, HRView) //feed model's data to controller
 HRController.init()
